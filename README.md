@@ -1,4 +1,5 @@
-# -Optimization-Final-Project--IPM-of-leafhoppers-in-sesame
+# Optimization-Final-Project--IPM-of-leafhoppers-in-sesame
+# _____________Yonatan Schwartz & Raz Shenvald
 This project model the optimization of pesticide the leafhopper in sesame crops. 
 
 ## Introduction
