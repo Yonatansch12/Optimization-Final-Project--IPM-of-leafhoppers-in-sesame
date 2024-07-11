@@ -7,11 +7,11 @@ The subject of this project is the integrated pest management (IPM) of the leafh
 Therefore, we propose a model to optimize the control of the leafhopper population on sesame crops while minimizing economic costs.
 
 ## Model
-Variables and parameters:
-- Population dynamics of leafhopper: birth and pesticide effect.
-- Sesame crop characteristics: market value, yield, damage taken.
-- Pesticide efficiency - chemical, biological, and IPM (combined) 
-- Economic factors: costs of damage, pesticides, and applications.
+Variables and parameters:<br />
+- Population dynamics of leafhopper: birth and pesticide effect.<br />
+- Sesame crop characteristics: market value, yield, damage taken.<br />
+- Pesticide efficiency - chemical, biological, and IPM (combined) <br />
+- Economic factors: costs of damage, pesticides, and applications.<br />
  
 ## Objective function:
 Minimize the total cost of pest management, including the costs of pesticide prices, applications, and economic losses due to leafhoppers. Financial losses are calculated based on the reduction in seeds by 10 leafhoppers per plant, infestation,  and the average value of the sesame crop for oil.
@@ -20,11 +20,11 @@ minimize Total Cost= t=0weeks-1(damages (t)+treatment costs(t))
 
 
 ## Constraints: 
-- leafhopper population dynamics: considering only birth, carrying capacity of 10,000, and the impact of pesticide applications. 
-- Constant market value and costs: The market value of sesame and the pesticide costs remain the same throughout the season.
-- Pesticide application limits: only once a week.
--Homogeneity: Regarding soil quality, climate conditions, leafhopper distribution, and pesticide application are all homogeneous in the field.
-- Pesticide resistance = none. 
+- leafhopper population dynamics: considering only birth, carrying capacity of 10,000, and the impact of pesticide applications. <br />
+- Constant market value and costs: The market value of sesame and the pesticide costs remain the same throughout the season.<br />
+- Pesticide application limits: only once a week.<br />
+-Homogeneity: Regarding soil quality, climate conditions, leafhopper distribution, and pesticide application are all homogeneous in the field.<br />
+- Pesticide resistance = none. <br />
 
 ## Variables definitions
 r= Reproduction rate= 4 times per week<br />
@@ -42,12 +42,12 @@ Cp= Cost of pesticise application = 10 $  per hour<br />
 
 ## Equations and developing Variables :
 
-Population dynamics:
-r= reproductive rate=4 times each week 
-K=carrying capacity =10,000
-Ec= chemical pesticide efficiency= 0.85%
-Eb= biological pesticide efficiency =0.7%  
-Ecomb=IPM efficeicy=0.95% 
+Population dynamics:<br />
+r= reproductive rate=4 times each week <br />
+K=carrying capacity =10,000<br />
+Ec= chemical pesticide efficiency= 0.85%<br />
+Eb= biological pesticide efficiency =0.7%  <br />
+Ecomb=IPM efficeicy=0.95% <br />
 
 pop (t)=population(t-1)+rpopulation(t-1)(1-population(t-1)K)-Ei(population(t-1) 
 
