@@ -1,0 +1,116 @@
+#which tratment is best for x population.
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameters
+r = 4  # intrinsic growth rate
+K = 10000  # carrying capacity
+Ec = 0.85  # chemical pesticide efficiency
+Eb = 0.7  # biological pesticide efficiency
+Ecomb = 0.95  # combined IPM efficiency
+Cc = 6  # cost of chemical pesticide per treatment
+Cb = 7.35  # cost of biological pesticide per treatment
+Ccomb = 6.675  # cost of combined IPM per treatment
+P = 2.4  # market price of sesame per kg
+Cd = 0.048  # cost of damage per plant
+k = 1.5  # yield loss in plants per 10 leafhoppers
+weeks = 15  # total time in weeks
+seed_yield_loss_per_plant = 0.02  # seed loss per plant in kg
+initial_populations = range(100, 1000, 100)  # Range of initial populations to test
+
+# Function to calculate population over time
+def calculate_population(n0, r, K, E, weeks):
+    population = np.zeros(weeks)
+    population[0] = n0
+    for t in range(1, weeks):
+        population[t] = population[t-1] + r * population[t-1] * (1 - population[t-1] / K) - E * population[t-1]
+        if population[t] < 0:
+            population[t] = 0
+    return population
+
+# Function to calculate costs over time and track treatments
+def calculate_costs(population, E, Ct, Cd, k, weeks):
+    damages = (population / 10) * k * Cd
+    treatment_costs = np.zeros(weeks)
+    total_costs = np.zeros(weeks)
+    cumulative_costs = np.zeros(weeks)
+    treatment_weeks = []
+    cumulative_cost = 0
+    for t in range(weeks):
+        if damages[t] > Ct:
+            treatment_costs[t] = Ct
+            population[t] *= (1 - E)
+            treatment_weeks.append(t)
+        total_costs[t] = damages[t] + treatment_costs[t]
+        cumulative_cost += total_costs[t]
+        cumulative_costs[t] = cumulative_cost
+    return cumulative_costs, treatment_weeks
+
+# Store results for analysis
+results = []
+
+for n0 in initial_populations:
+    # Calculate population and costs for each treatment
+    pop_chemical = calculate_population(n0, r, K, Ec, weeks)
+    pop_biological = calculate_population(n0, r, K, Eb, weeks)
+    pop_combined = calculate_population(n0, r, K, Ecomb, weeks)
+
+    costs_chemical, treatment_weeks_chemical = calculate_costs(pop_chemical, Ec, Cc, Cd, k, weeks)
+    costs_biological, treatment_weeks_biological = calculate_costs(pop_biological, Eb, Cb, Cd, k, weeks)
+    costs_combined, treatment_weeks_combined = calculate_costs(pop_combined, Ecomb, Ccomb, Cd, k, weeks)
+
+    total_cost_chemical = costs_chemical[-1]
+    total_cost_biological = costs_biological[-1]
+    total_cost_combined = costs_combined[-1]
+
+    min_cost = min(total_cost_chemical, total_cost_biological, total_cost_combined)
+    if min_cost == total_cost_chemical:
+        best_strategy = "Chemical Treatment"
+    elif min_cost == total_cost_biological:
+        best_strategy = "Biological Treatment"
+    else:
+        best_strategy = "Combined IPM Treatment"
+
+    results.append((n0, total_cost_chemical, total_cost_biological, total_cost_combined, best_strategy))
+
+# Convert results to a numpy array for easier analysis
+results_array = np.array(results, dtype=[('Initial Population', int),
+                                         ('Chemical Cost', float),
+                                         ('Biological Cost', float),
+                                         ('Combined Cost', float),
+                                         ('Best Strategy', 'U20')])
+
+# Print the results
+for result in results_array:
+    print(f"Initial Population: {result['Initial Population']}, "
+          f"Chemical Cost: ${result['Chemical Cost']:.2f}, "
+          f"Biological Cost: ${result['Biological Cost']:.2f}, "
+          f"Combined Cost: ${result['Combined Cost']:.2f}, "
+          f"Best Strategy: {result['Best Strategy']}")
+
+# Plot the results
+labels = results_array['Initial Population']
+chemical_costs = results_array['Chemical Cost']
+biological_costs = results_array['Biological Cost']
+combined_costs = results_array['Combined Cost']
+
+x = np.arange(len(labels))  # the label locations
+width = 0.2  # the width of the bars
+
+fig, ax = plt.subplots(figsize=(12, 8))
+rects1 = ax.bar(x - width, chemical_costs, width, label='Chemical')
+rects2 = ax.bar(x, biological_costs, width, label='Biological')
+rects3 = ax.bar(x + width, combined_costs, width, label='Combined IPM')
+
+# Add some text for labels, title and custom x-axis tick labels, etc.
+ax.set_xlabel('Initial Leafhopper Population')
+ax.set_ylabel('Total Cost ($)')
+ax.set_title('Total Costs by Treatment Method and Initial Population')
+ax.set_xticks(x)
+ax.set_xticklabels(labels)
+ax.legend()
+
+fig.tight_layout()
+
+plt.show()
