@@ -27,18 +27,18 @@ minimize Total Cost= t=0weeks-1(damages (t)+treatment costs(t))
 - Pesticide resistance = none. 
 
 ## Variables definitions
-r= Reproduction rate= 4 times per week
-K = Carrying capasity= 10,000
-Ec= chemical pesticide efficiency= 0.85%
-Eb= biological pesticide efficiency =0.7%  
-Ecomb=IPM efficeicy=0.95% 
-k= Yield loss= 1.5 planet per 10 leafhopers
-Cc= Chemical pesticide cost= 6 $ per treatment 
-Cb=Biological pestiside's cost= 7.35 $ per treatment 
-Ccomb=IPM pestiside's cost= 6.675 $ per treatment  
-P=  Sesame's Market price= 2.4 $ per kg
-Cd= 0.048 $ per damaged plant
-Cp= Cost of pesticise application = 10 $  per hour
+r= Reproduction rate= 4 times per week;
+K = Carrying capasity= 10,000;
+Ec= chemical pesticide efficiency= 0.85%;
+Eb= biological pesticide efficiency =0.7%  ;
+Ecomb=IPM efficeicy=0.95% ;
+k= Yield loss= 1.5 planet per 10 leafhopers;
+Cc= Chemical pesticide cost= 6 $ per treatment; 
+Cb=Biological pestiside's cost= 7.35 $ per treatment ;
+Ccomb=IPM pestiside's cost= 6.675 $ per treatment ; 
+P=  Sesame's Market price= 2.4 $ per kg;
+Cd= 0.048 $ per damaged plant;
+Cp= Cost of pesticise application = 10 $  per hour;
 
 ## Equations and developing Variables :
 
