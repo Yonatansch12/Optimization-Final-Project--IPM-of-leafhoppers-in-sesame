@@ -16,6 +16,7 @@ Variables and parameters:<br />
  
 ## Objective function:
 Minimize the total cost of pest management, including the costs of pesticide prices, applications, and economic losses due to leafhoppers. Financial losses are calculated based on the reduction in seeds by 10 leafhoppers per plant, infestation,  and the average value of the sesame crop for oil.
+
 $$
 minimize Total Cost= \sum_{t=0}^{weeks-1}(damages (t)+treatment costs(t))
 $$
