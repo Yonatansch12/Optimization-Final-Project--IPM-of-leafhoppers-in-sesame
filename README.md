@@ -1,7 +1,7 @@
 # Optimization-Final-Project--IPM-of-leafhoppers-in-sesame
 # _____________Yonatan Schwartz & Raz Shenvald_____________
 This project model the optimization of pesticide the leafhopper in sesame crops. 
-
+#bla bla
 ## Introduction
 The subject of this project is the integrated pest management (IPM) of the leafhopper (Orosius orientalis). who causes significant damage to sesame crops through its sap-sucking habits and its role as a vector for Phyllody disease. By eating the plant sap, both nymphs and adults induce curling of leaf edges, leaf discoloration, and premature leaf shedding, which weaken the plants and reduce their photosynthetic capability. More critically phyllody disease transforms floral parts into green leaf-like structures which cause severe yield losses ranging from 34% to 100%. Effective management of this pest is essential to protect sesame crop health and productivity.
 
