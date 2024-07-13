@@ -28,19 +28,20 @@ minimize Total Cost= t=0weeks-1(damages (t)+treatment costs(t))
 - Pesticide resistance = none. <br />
 
 ## Variables definitions
-r= Reproduction rate= 4 times per week<br />
-K = Carrying capasity= 10,000<br />
-Ec= chemical pesticide efficiency= 0.85%<br />
-Eb= biological pesticide efficiency =0.7%  <br />
-Ecomb=IPM efficeicy=0.95% <br />
-k= Yield loss= 1.5 planet per 10 leafhopers<br />
-Cc= Chemical pesticide cost= 6 $ per treatment<br />
-Cb=Biological pestiside's cost= 7.35 $ per treatment <br />
-Ccomb=IPM pestiside's cost= 6.675 $ per treatment <br />
-P=  Sesame's Market price= 2.4 $ per kg<br />
-Cd= 0.048 $ per damaged plant<br />
-Cp= Cost of pesticise application = 10 $  per hour<br />
-
+```
+r= Reproduction rate= 4 times per week
+K = Carrying capasity= 10,000
+Ec= chemical pesticide efficiency= 0.85%
+Eb= biological pesticide efficiency =0.7%  
+Ecomb=IPM efficeicy=0.95% 
+k= Yield loss= 1.5 planet per 10 leafhopers
+Cc= Chemical pesticide cost= 6 $ per treatment
+Cb=Biological pestiside's cost= 7.35 $ per treatment 
+Ccomb=IPM pestiside's cost= 6.675 $ per treatment 
+P=  Sesame's Market price= 2.4 $ per kg
+Cd= 0.048 $ per damaged plant
+Cp= Cost of pesticise application = 10 $  per hour
+```
 ## Equations and developing Variables :
 
 Population dynamics:<br />
@@ -50,8 +51,9 @@ Ec= chemical pesticide efficiency= 0.85%<br />
 Eb= biological pesticide efficiency =0.7%  <br />
 Ecomb=IPM efficeicy=0.95% <br />
 
-pop (t)=population(t-1)+rpopulation(t-1)(1-population(t-1)K)-Ei(population(t-1) 
-
+$$
+pop(t)=population(t-1)+rpopulation(t-1)(1-population(t-1)K)-Ei(population(t-1) 
+$$
 
 Sesame’s market value:
 As observed in the first weeks of the sesame season, in the plots of Professor Tzvika Peleg's research laboratory, we have estimated that each plot suffers a total loss of 1.5 plants. this disease requires the removal of these plants. Additionally, after counting dozens of samples, we found that, on average, there are 60 pods per plant, each containing about 70 seeds. This means that one plant represents an average loss of 6,300 seeds. Converting this to weight results in a loss of 20 grams of dry matter (ready seeds) per plant. There are 450 plots in the field, resulting in an estimated total loss of 9 tons of seeds. Given the average market price of sesame seeds (2.4 dollars per kg), the estimated loss amounts to 21,600 dollars for the first week and 0.048 dollars per damaged plant. 
